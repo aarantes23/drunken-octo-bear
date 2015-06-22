@@ -5,8 +5,8 @@
  */
 package dao;
 
-import Bean.Reserva;
-import Util.Conexao;
+import Beans.Reserva;
+import DbHelper.DbHelper;
 import Values.Strings;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,12 +18,12 @@ import java.util.ArrayList;
  */
 public class ReservaDao {
 
-    Conexao conexao = new Conexao();
     Strings strings = new Strings();
+    DbHelper dbHelper = new DbHelper();
 
     public ReservaDao() {
     }
-
+    
     /**
      * Insert a new Reserva in the database
      *
@@ -31,18 +31,18 @@ public class ReservaDao {
      * @return
      */
     public String insert(Reserva reserva) {
-        conexao.getConnection();
-        String query = "INSERT INTO reserva VALUES ("
-                + "" + reserva.getCodigo() + ","
-                + "" + reserva.getCodCliente() + ","
-                + "" + reserva.getCodQuarto() + ","
-                + "'" + reserva.getDataCheckin() + "',"
-                + "'" + reserva.getDataCheckout() + "',"
-                + "" + reserva.getQtdePessoa() + ""
+        dbHelper.getConnection();
+        String query = "INSERT INTO Reserva VALUES ("
+                + "" + reserva.getId() + ","
+                + "'" + reserva.getData_check_in() + "',"
+                + "" + reserva.getCliente_id()+ ","
+                + "" + reserva.getUsuario_id() + ","
+                + "" + reserva.getCheck_out_id() + ","
+                + "" + reserva.getQuarto_id()
                 + ");";
         try {
-            conexao.stmt.execute(query);
-            conexao.desconnect();
+            dbHelper.stmt.execute(query);
+            dbHelper.desconnect();
             return (strings.insert_ok);
         } catch (SQLException ex) {
             return (strings.insert_erro);
@@ -50,30 +50,31 @@ public class ReservaDao {
     }
 
     /**
-     * Get all Reserva in the database
+     * Get all Reservas in the database
      *
-     * @return a arraylist with all reserva
+     * @return
      */
     public ArrayList<Reserva> search() {
         ArrayList<Reserva> arrayList = new ArrayList<Reserva>();
-        conexao.getConnection();
-        String query = "SELECT * FROM reserva";
+        dbHelper.getConnection();
+        String query = "SELECT * FROM Reserva";
         ResultSet resultSet;
         try {
-            resultSet = conexao.stmt.executeQuery(query);
+            resultSet = dbHelper.stmt.executeQuery(query);
             while (resultSet.next()) {
                 Reserva reserva = new Reserva();
-                reserva.setCodigo(resultSet.getInt(1));
-                reserva.setCodCliente(resultSet.getInt(2));
-                reserva.setCodQuarto(resultSet.getInt(3));
-                reserva.setDataCheckin(resultSet.getString(4));
-                reserva.setDataCheckout(resultSet.getString(5));
+                reserva.setId(resultSet.getInt(1));
+                reserva.setData_check_in(resultSet.getInt(2));
+                reserva.setQuarto_id(resultSet.getInt(3));
+                reserva.setUsuario_id(resultSet.getInt(4));
+                reserva.setCheck_out_id(resultSet.getInt(5));
+                reserva.setQuarto_id(resultSet.getInt(6));
                 arrayList.add(reserva);
             }
             resultSet.close();
         } catch (SQLException ex) {
         }
-        conexao.desconnect();
+        dbHelper.desconnect();
         return arrayList;
     }
 
@@ -81,23 +82,23 @@ public class ReservaDao {
      * Update a single Reserva in the database
      *
      * @param reserva
-     * @return a String with the result
+     * @return
      */
     public String update(Reserva reserva) {
-        conexao.getConnection();
-        String query = "UPDATE reserva SET "
-                + " codCliente = " + reserva.getCodCliente() + ","
-                + " codQuarto = " + reserva.getCodQuarto() + ","
-                + " dataCheckin = '" + reserva.getDataCheckin() + "',"
-                + " dataCheckout = '" + reserva.getDataCheckout() + "',"
-                + " qtdePessoa = " + reserva.getQtdePessoa()
-                + " WHERE codigo = " + reserva.getCodigo();
+        dbHelper.getConnection();
+        String query = "UPDATE Reserva SET "
+                + " data_check_in = '" + reserva.getData_check_in() + "',"
+                + " Cliente_id = " + reserva.getCliente_id() + ","
+                + " Usuario_id = " + reserva.getUsuario_id() + ","
+                + " Check_out  = " + reserva.getCheck_out_id() + ","
+                + " Quarto_id = " + reserva.getQuarto_id()
+                + " WHERE id = " + reserva.getId();
         try {
-            conexao.stmt.execute(query);
-            conexao.desconnect();
+            dbHelper.stmt.execute(query);
+            dbHelper.desconnect();
             return (strings.editar_ok);
         } catch (SQLException e) {
-            conexao.desconnect();
+            dbHelper.desconnect();
             return (strings.editar_erro);
         }
     }
@@ -109,17 +110,16 @@ public class ReservaDao {
      * @return
      */
     public String delete(Reserva reserva) {
-        conexao.getConnection();
-        String query = "DELETE FROM reserva "
-                + " WHERE codigo = " + reserva.getCodigo();
+        dbHelper.getConnection();
+        String query = "DELETE FROM Reserva "
+                + " WHERE id = " + reserva.getId();
         try {
-            conexao.stmt.execute(query);
-            conexao.desconnect();
+            dbHelper.stmt.execute(query);
+            dbHelper.desconnect();
             return (strings.delete_ok);
         } catch (SQLException e) {
-            conexao.desconnect();
+            dbHelper.desconnect();
             return (strings.delete_erro);
         }
     }
-
 }
