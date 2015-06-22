@@ -7,7 +7,6 @@ package dao;
 
 import Beans.CheckOut;
 import DbHelper.DbHelper;
-import Values.Strings;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,7 +17,6 @@ import java.util.ArrayList;
  */
 public class CheckOutDao {
 
-    Strings strings = new Strings();
     DbHelper dbHelper = new DbHelper();
 
     public CheckOutDao() {
@@ -28,20 +26,21 @@ public class CheckOutDao {
      * Insert a new CheckOut in the database
      *
      * @param checkOut
-     * @return
+     * @return true for ok , false for erro
      */
-    public String insert(CheckOut checkOut) {
+    public boolean insert(CheckOut checkOut) {
         dbHelper.getConnection();
         String query = "INSERT INTO Check_out VALUES ("
                 + "" + checkOut.getId() + ","
-                + "'" + checkOut.getData() + "'"
+                + "'" + checkOut.getDate() + "',"
+                + "" + checkOut.getStatus()
                 + ");";
         try {
             dbHelper.stmt.execute(query);
             dbHelper.desconnect();
-            return (strings.insert_ok);
+            return true;
         } catch (SQLException ex) {
-            return (strings.insert_erro);
+            return false;
         }
     }
 
@@ -60,7 +59,8 @@ public class CheckOutDao {
             while (resultSet.next()) {
                 CheckOut checkOut = new CheckOut();
                 checkOut.setId(resultSet.getInt(1));
-                checkOut.setData(resultSet.getString(2));
+                checkOut.setDate(resultSet.getString(2));
+                checkOut.setStatus(resultSet.getInt(3));
                 arrayList.add(checkOut);
             }
             resultSet.close();
@@ -75,21 +75,22 @@ public class CheckOutDao {
      * Update a single CheckOut in the database
      *
      * @param checkOut
-     * @return
+     * @return true for ok , false for erro
      */
-    public String update(CheckOut checkOut) {
+    public boolean update(CheckOut checkOut) {
         dbHelper.getConnection();
         String query = "UPDATE Check_out SET "
-                + " data = '" + checkOut.getData() + "'"
+                + " date = '" + checkOut.getDate() + "',"
+                + " status = " + checkOut.getStatus()
                 + " WHERE id = " + checkOut.getId();
         try {
             dbHelper.stmt.execute(query);
             dbHelper.desconnect();
-            return (strings.editar_ok);
+            return true;
 
         } catch (SQLException e) {
             dbHelper.desconnect();
-            return (strings.editar_erro);
+            return false;
         }
     }
 
@@ -97,20 +98,20 @@ public class CheckOutDao {
      * Delete a single CheckOut in the database
      *
      * @param checkOut
-     * @return
+     * @return true for ok , false for erro
      */
-    public String delete(CheckOut checkOut) {
+    public boolean delete(CheckOut checkOut) {
         dbHelper.getConnection();
         String query = "DELETE FROM Check_out "
                 + " WHERE id = " + checkOut.getId();
         try {
             dbHelper.stmt.execute(query);
             dbHelper.desconnect();
-            return (strings.delete_ok);
+            return true;
 
         } catch (SQLException e) {
             dbHelper.desconnect();
-            return (strings.delete_erro);
+            return false;
         }
     }
 }

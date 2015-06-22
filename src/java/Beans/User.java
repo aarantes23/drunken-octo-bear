@@ -12,15 +12,15 @@ package Beans;
 public class User {
 
     private int id;
-    private String nome;
+    private String name;
     private String login;
-    private String senha;
+    private String password;
     private String cpf;
-    private String telefone;
-    private String endereco;
+    private String phone;
+    private String address;
     private String rg;
-    private String sexo;
-    private String data_nascimento;
+    private String sex;
+    private String birthday;
     private int userType;
 
     public User() {
@@ -34,12 +34,12 @@ public class User {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLogin() {
@@ -50,12 +50,12 @@ public class User {
         this.login = login;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getCpf() {
@@ -66,20 +66,20 @@ public class User {
         this.cpf = cpf;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getAddress() {
+        return address;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getRg() {
@@ -90,20 +90,20 @@ public class User {
         this.rg = rg;
     }
 
-    public String getSexo() {
-        return sexo;
+    public String getSex() {
+        return sex;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
-    public String getData_nascimento() {
-        return data_nascimento;
+    public String getBirthday() {
+        return birthday;
     }
 
-    public void setData_nascimento(String data_nascimento) {
-        this.data_nascimento = data_nascimento;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
     public int getUserType() {

@@ -33,15 +33,20 @@ public class DeleteRoom extends HttpServlet {
 
         // Objects used
         Room room = new Room();
-        RoomDao roomDao = new RoomDao();        
+        RoomDao roomDao = new RoomDao();
+        boolean result = false;
 
         // Recover user cod 
-        room.setId(Integer.parseInt(request.getParameter("codigo")));
+        room.setId(Integer.parseInt(request.getParameter("code")));
 
         // Delete in the database
-        String result = roomDao.delete(room);
+        result = roomDao.delete(room);
 
-        // Display de result in the java console
-        System.out.println(result);
+        // Display de result
+        if (result == true) {
+            response.sendRedirect("/config/operation_success");
+        } else {
+            response.sendRedirect("/config/operation_erro");
+        }
     }
 }

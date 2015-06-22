@@ -37,7 +37,7 @@ public class SearchCheckOut_has_Item extends HttpServlet {
             throws ServletException, IOException {
 
         // Teste
-        String result = "false";
+        boolean result = false;
 
         // Objects used 
         CheckOut checkOut = new CheckOut();
@@ -71,19 +71,23 @@ public class SearchCheckOut_has_Item extends HttpServlet {
                     if (checkOut_has_Items_List.get(i).getItem_id() == search_item_List.get(j).getId()) {
                         Item item_temp = new Item();
                         item_temp.setId(search_item_List.get(j).getId());
-                        item_temp.setNome(search_item_List.get(j).getNome());
-                        item_temp.setValor(search_item_List.get(j).getValor());
+                        item_temp.setName(search_item_List.get(j).getName());
+                        item_temp.setPrice(search_item_List.get(j).getPrice());
                         consumed_item_List.add(item_temp);
-                        result = "ok";
+                        result = true;
                     }
                 }
             }
         }
 
-        // Send the response
-        // consumed_item_List;
-        // Display de result in the java console
-        System.out.println(result);
+        // In the final version,
+        // Send the response that`ll be : consumed_item_List;
+        // Now, just display de result
+        if (result == true) {
+            response.sendRedirect("/config/operation_success");
+        } else {
+            response.sendRedirect("/config/operation_erro");
+        }
     }
 
 }

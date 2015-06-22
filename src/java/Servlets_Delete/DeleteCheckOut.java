@@ -34,14 +34,19 @@ public class DeleteCheckOut extends HttpServlet {
         // Objects used
         CheckOut checkOut = new CheckOut();
         CheckOutDao checkOutDao = new CheckOutDao();
-
+        boolean result = false;
+        
         // Recover user cod 
-        checkOut.setId(Integer.parseInt(request.getParameter("codigo")));
+        checkOut.setId(Integer.parseInt(request.getParameter("code")));
 
         // Delete in the database
-        String result = checkOutDao.delete(checkOut);
+        result = checkOutDao.delete(checkOut);
 
-        // Display de result in the java console
-        System.out.println(result);
+        // Display de result
+        if (result == true ){
+            response.sendRedirect("/config/operation_success");
+        } else {
+            response.sendRedirect("/config/operation_erro");
+        }
     }
 }

@@ -37,15 +37,15 @@ public class UpdateUser extends HttpServlet {
 
         // Fill the object with the data obtained
         user.setId(Integer.parseInt(request.getParameter("codigo")));
-        user.setNome(request.getParameter("nome"));
+        user.setName(request.getParameter("nome"));
         user.setLogin(request.getParameter("login"));
-        user.setSenha(request.getParameter("senha"));
+        user.setPassword(request.getParameter("senha"));
         user.setCpf(request.getParameter("cpf"));
-        user.setTelefone(request.getParameter("telefone"));
-        user.setEndereco(request.getParameter("endereco"));
+        user.setPhone(request.getParameter("telefone"));
+        user.setAddress(request.getParameter("endereco"));
         user.setRg(request.getParameter("rg"));
-        user.setSexo(request.getParameter("sexo"));
-        user.setData_nascimento(request.getParameter("data_nascimento"));
+        user.setSex(request.getParameter("sexo"));
+        user.setBirthday(request.getParameter("data_nascimento"));
         user.setUserType(Integer.parseInt(request.getParameter("userType")));
 
         // Update in the database   

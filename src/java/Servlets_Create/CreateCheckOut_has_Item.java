@@ -34,16 +34,21 @@ public class CreateCheckOut_has_Item extends HttpServlet {
         // Objects used
         CheckOut_has_Item checkOut_has_Item = new CheckOut_has_Item();
         CheckOut_has_Item_Dao checkOut_has_Item_Dao = new CheckOut_has_Item_Dao();
-
+        boolean result = false;
+        
         // Fill the object with the data obtained
         checkOut_has_Item.setCheck_out_id(Integer.parseInt(request.getParameter("check_out")));
         checkOut_has_Item.setItem_id(Integer.parseInt(request.getParameter("item")));
 
         // Insert in the database   
-        String result = checkOut_has_Item_Dao.insert(checkOut_has_Item);
+        result = checkOut_has_Item_Dao.insert(checkOut_has_Item);
         
-        // Display de result in the java console
-        System.out.println(result);
+        // Display de result
+        if (result == true){
+            response.sendRedirect("/config/operation_success");
+        } else {
+            response.sendRedirect("/config/operation_erro");
+        }
 
     }
 }

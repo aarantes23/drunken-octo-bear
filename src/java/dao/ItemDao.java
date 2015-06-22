@@ -7,7 +7,6 @@ package dao;
 
 import Beans.Item;
 import DbHelper.DbHelper;
-import Values.Strings;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,7 +17,6 @@ import java.util.ArrayList;
  */
 public class ItemDao {
 
-    Strings strings = new Strings();
     DbHelper dbHelper = new DbHelper();
 
     public ItemDao() {
@@ -28,21 +26,21 @@ public class ItemDao {
      * Insert a new Item in the database
      *
      * @param item
-     * @return
+     * @return true for ok , false for erro
      */
-    public String insert(Item item) {
+    public boolean insert(Item item) {
         dbHelper.getConnection();
         String query = "INSERT INTO Item VALUES ("
                 + "" + item.getId() + ","
-                + "" + item.getValor() + ","
-                + "" + item.getNome()
+                + "'" + item.getName()+ "',"
+                + "" + item.getPrice()
                 + ");";
         try {
             dbHelper.stmt.execute(query);
             dbHelper.desconnect();
-            return (strings.insert_ok);
+            return true;
         } catch (SQLException ex) {
-            return (strings.insert_erro);
+            return false;
         }
     }
 
@@ -61,8 +59,8 @@ public class ItemDao {
             while (resultSet.next()) {
                 Item item = new Item();
                 item.setId(resultSet.getInt(1));
-                item.setValor(resultSet.getFloat(2));
-                item.setNome(resultSet.getString(3));
+                item.setName(resultSet.getString(2));
+                item.setPrice(resultSet.getFloat(3));                
                 arrayList.add(item);
             }
             resultSet.close();
@@ -76,22 +74,22 @@ public class ItemDao {
      * Update a single Item in the database
      *
      * @param item
-     * @return
+     * @return true for ok , false for erro
      */
-    public String update(Item item) {
+    public boolean update(Item item) {
         dbHelper.getConnection();
-        String query = "UPDATE Item SET "
-                + " valor = " + item.getValor() + ","
-                + " nome = '" + item.getNome() + "'"
+        String query = "UPDATE Item SET "                
+                + " name = '" + item.getName() + "',"
+                + " price = " + item.getPrice()
                 + " WHERE id = " + item.getId();
         try {
             dbHelper.stmt.execute(query);
             dbHelper.desconnect();
-            return (strings.editar_ok);
+            return true;
 
         } catch (SQLException e) {
             dbHelper.desconnect();
-            return (strings.editar_erro);
+            return false;
         }
     }
 
@@ -99,19 +97,19 @@ public class ItemDao {
      * Delete a single Item in the database
      *
      * @param item
-     * @return
+     * @return true for ok , false for erro
      */
-    public String delete(Item item) {
+    public boolean delete(Item item) {
         dbHelper.getConnection();
         String query = "DELETE FROM item "
                 + " WHERE id = " + item.getId();
         try {
             dbHelper.stmt.execute(query);
             dbHelper.desconnect();
-            return (strings.delete_ok);
+            return true;
         } catch (SQLException e) {
             dbHelper.desconnect();
-            return (strings.delete_erro);
+            return false;
         }
     }
 

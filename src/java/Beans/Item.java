@@ -13,8 +13,8 @@ package Beans;
 public class Item {
     
     private int id;    
-    private float valor;
-    private String nome;
+    private float price;
+    private String name;
 
     public Item() {
     }
@@ -27,20 +27,20 @@ public class Item {
         this.id = id;
     }
 
-    public float getValor() {
-        return valor;
+    public float getPrice() {
+        return price;
     }
 
-    public void setValor(float valor) {
-        this.valor = valor;
+    public void setPrice(float price) {
+        this.price = price;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
 }

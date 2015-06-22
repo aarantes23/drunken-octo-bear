@@ -34,14 +34,19 @@ public class DeleteUser extends HttpServlet {
         // Objects used
         User user = new User();
         UserDao userDao = new UserDao();
-
+        boolean result = false;
+        
         // Recover user cod 
-        user.setId(Integer.parseInt(request.getParameter("codigo")));
+        user.setId(Integer.parseInt(request.getParameter("code")));
 
         // Delete in the database
-        String result = userDao.delete(user);
+        result = userDao.delete(user);
 
-        // Display de result in the java console
-        System.out.println(result);
+        // Display de result
+        if (result == true){
+            response.sendRedirect("/config/operation_success");
+        } else {
+            response.sendRedirect("/config/operation_erro");
+        }
     }
 }

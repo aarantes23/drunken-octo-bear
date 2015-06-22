@@ -36,6 +36,7 @@ public class SearchUser extends HttpServlet {
         User user = new User();
         UserDao userDao = new UserDao();
         ArrayList<User> arrayList = new ArrayList<User>();
+        boolean result = false;
 
         // Recover the object cod
         user.setId(Integer.parseInt(request.getParameter("codigoBuscar")));
@@ -47,21 +48,26 @@ public class SearchUser extends HttpServlet {
         for (int i = 0; i < arrayList.size(); i++) {
             if (user.getId() == arrayList.get(i).getId()) {
                 user.setId(arrayList.get(i).getId());
-                user.setNome(arrayList.get(i).getNome());
+                user.setName(arrayList.get(i).getName());
                 user.setLogin(arrayList.get(i).getLogin());
-                user.setSenha(arrayList.get(i).getSenha());
+                user.setPassword(arrayList.get(i).getPassword());
                 user.setCpf(arrayList.get(i).getCpf());
-                user.setTelefone(arrayList.get(i).getTelefone());
-                user.setEndereco(arrayList.get(i).getEndereco());
+                user.setPhone(arrayList.get(i).getPhone());
+                user.setAddress(arrayList.get(i).getAddress());
                 user.setRg(arrayList.get(i).getRg());
-                user.setSexo(arrayList.get(i).getSexo());
-                user.setData_nascimento(arrayList.get(i).getData_nascimento());
+                user.setSex(arrayList.get(i).getSex());
+                user.setBirthday(arrayList.get(i).getBirthday());
                 user.setUserType(arrayList.get(i).getUserType());
+                result = true;
             }
         }
 
-        // Display de result in the java console
-        System.out.println(user.toString());
+         // Display de result
+        if (result == true) {
+            response.sendRedirect("/config/operation_success");
+        } else {
+            response.sendRedirect("/config/operation_erro");
+        }
     }
 
 }

@@ -33,16 +33,22 @@ public class CreateCheckOut extends HttpServlet {
 
         // Objects used
         CheckOut checkOut = new CheckOut();
-        CheckOutDao checkOutDao = new CheckOutDao();
-
+        CheckOutDao checkOutDao = new CheckOutDao();        
+        boolean result = false;
+        
         // Fill the object with the data obtained
-        checkOut.setId(Integer.parseInt(request.getParameter("codigo")));
-        checkOut.setData(request.getParameter("data_check_out"));
+        checkOut.setId(Integer.parseInt(request.getParameter("code")));
+        checkOut.setDate(request.getParameter("date_check_out"));
+        checkOut.setStatus(Integer.parseInt(request.getParameter("status")));
 
         // Insert in the database        
-        String result = checkOutDao.insert(checkOut);
+        result = checkOutDao.insert(checkOut);
         
-        // Display de result in the java console
-        System.out.println(result);
+        // Display de result
+        if (result == true){
+            response.sendRedirect("/config/operation_success");
+        } else {
+            response.sendRedirect("/config/operation_erro");
+        }
     }
 }

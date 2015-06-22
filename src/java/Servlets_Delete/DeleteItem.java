@@ -34,14 +34,19 @@ public class DeleteItem extends HttpServlet {
         // Objects used
         Item item = new Item();
         ItemDao itemDao = new ItemDao();
-
+        boolean result = false;
+        
         // Recover user cod 
-        item.setId(Integer.parseInt(request.getParameter("codigo")));
+        item.setId(Integer.parseInt(request.getParameter("code")));
 
         // Delete in the database
-        String result = itemDao.delete(item);
+        result = itemDao.delete(item);
 
-        // Display de result in the java console
-        System.out.println(result);
+        // Display de result
+        if (result == true){
+            response.sendRedirect("/config/operation_success");
+        } else {
+            response.sendRedirect("/config/operation_erro");
+        }
     }
 }

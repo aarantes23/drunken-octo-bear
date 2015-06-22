@@ -36,7 +36,8 @@ public class SearchItem extends HttpServlet {
         Item item = new Item();
         ItemDao itemDao = new ItemDao();
         ArrayList<Item> arrayList = new ArrayList<Item>();
-
+        boolean result = false;
+        
         // Recover the object cod
         item.setId(Integer.parseInt(request.getParameter("codigoBuscar")));
 
@@ -47,13 +48,18 @@ public class SearchItem extends HttpServlet {
         for (int i = 0; i < arrayList.size(); i++) {
             if (item.getId() == arrayList.get(i).getId()) {
                 item.setId(arrayList.get(i).getId());
-                item.setValor(arrayList.get(i).getValor());
-                item.setNome(arrayList.get(i).getNome());
+                item.setPrice(arrayList.get(i).getPrice());
+                item.setName(arrayList.get(i).getName());
+                result = true;
             }
         }
 
-        // Display de result in the java console
-        System.out.println(item.toString());
+         // Display de result
+        if (result == true) {
+            response.sendRedirect("/config/operation_success");
+        } else {
+            response.sendRedirect("/config/operation_erro");
+        }
     }
 
 }

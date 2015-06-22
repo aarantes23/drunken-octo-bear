@@ -12,7 +12,8 @@ package Beans;
 public class CheckOut {
 
     private int id;
-    private String data;
+    private String date;
+    private int status;
 
     public CheckOut() {
     }
@@ -25,12 +26,20 @@ public class CheckOut {
         this.id = id;
     }
 
-    public String getData() {
-        return data;
+    public String getDate() {
+        return date;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDate(String date) {
+        this.date = date;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+        
 }

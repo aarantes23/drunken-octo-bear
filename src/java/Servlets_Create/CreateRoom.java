@@ -34,17 +34,22 @@ public class CreateRoom extends HttpServlet {
         // Objects used
         Room room = new Room();
         RoomDao roomDao = new RoomDao();
+        boolean result = false;
 
         // Fill the object with the data obtained
-        room.setNumero(Integer.parseInt(request.getParameter("numero")));        
-        room.setAndar(request.getParameter("andar"));
-        room.setTipo(request.getParameter("tipo"));
-        room.setValorDiaria(Float.parseFloat(request.getParameter("valorDiaria")));                
+        room.setNumero(Integer.parseInt(request.getParameter("number")));        
+        room.setAndar(request.getParameter("floor"));
+        room.setTipo(request.getParameter("room_type"));
+        room.setValorDiaria(Float.parseFloat(request.getParameter("daily_value")));                
 
         // Insert in the database  
-        String result = roomDao.insert(room);
+        result = roomDao.insert(room);
         
-        // Display de result in the java console
-        System.out.println(result);
+        // Display de result
+        if (result == true){
+            response.sendRedirect("/config/operation_success");
+        } else {
+            response.sendRedirect("/config/operation_erro");
+        }
     }
 }

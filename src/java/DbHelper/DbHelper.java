@@ -28,7 +28,7 @@ public class DbHelper {
 
     public DbHelper() {
        driver = "com.mysql.jdbc.Driver";
-       local = "jdbc:mysql://localhost/hotel";
+       local = "jdbc:mysql://localhost/hoteldb";
        user = "root";
        password = "root";
     }

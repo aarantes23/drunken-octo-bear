@@ -34,23 +34,28 @@ public class CreateUser extends HttpServlet {
         // Objects used
         User user = new User();
         UserDao userDao = new UserDao();
-
+        boolean result = false;
+        
         // Fill the object with the data obtained
-        user.setNome(request.getParameter("nome"));
+        user.setName(request.getParameter("name"));
         user.setLogin(request.getParameter("login"));
-        user.setSenha(request.getParameter("senha"));
+        user.setPassword(request.getParameter("password"));
         user.setCpf(request.getParameter("cpf"));
-        user.setTelefone(request.getParameter("telefone"));
-        user.setEndereco(request.getParameter("endereco"));
+        user.setPhone(request.getParameter("phone"));
+        user.setAddress(request.getParameter("address"));
         user.setRg(request.getParameter("rg"));
-        user.setSexo(request.getParameter("sexo"));
-        user.setData_nascimento(request.getParameter("data_nascimento"));                
+        user.setSex(request.getParameter("sex"));
+        user.setBirthday(request.getParameter("birthday"));                
         user.setUserType(Integer.parseInt(request.getParameter("userType")));        
 
         // Insert in the database
-        String result = userDao.insert(user);
+        result = userDao.insert(user);
         
-        // Display de result in the java console
-        System.out.println(result);
+        // Display de result
+        if (result == true){
+            response.sendRedirect("/config/operation_success");
+        } else {
+            response.sendRedirect("/config/operation_erro");
+        }
     }
 }

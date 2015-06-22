@@ -36,12 +36,13 @@ public class UpdateCheckOut extends HttpServlet {
         CheckOutDao checkOutDao = new CheckOutDao();
 
         // Fill the object with the data obtained
-        checkOut.setId(Integer.parseInt(request.getParameter("codigo")));
-        checkOut.setData(request.getParameter("data_check_out"));
+        checkOut.setId(Integer.parseInt(request.getParameter("code")));
+        checkOut.setDate(request.getParameter("data_check_out"));
+        checkOut.setStatus(Integer.parseInt(request.getParameter("status")));
 
         // Update in the database   
         checkOutDao.update(checkOut);
-        
+
         // Display de result in the java console
         System.out.println(checkOut.toString());
     }

@@ -36,6 +36,7 @@ public class SearchCheckOut extends HttpServlet {
         CheckOut checkOut = new CheckOut();
         CheckOutDao checkOutDao = new CheckOutDao();
         ArrayList<CheckOut> arrayList = new ArrayList<CheckOut>();
+        boolean result = false;
 
         // Recover the object cod
         checkOut.setId(Integer.parseInt(request.getParameter("codigoBuscar")));
@@ -47,12 +48,17 @@ public class SearchCheckOut extends HttpServlet {
         for (int i = 0; i < arrayList.size(); i++) {
             if (checkOut.getId() == arrayList.get(i).getId()) {
                 checkOut.setId(arrayList.get(i).getId());
-                checkOut.setData(arrayList.get(i).getData());
+                checkOut.setDate(arrayList.get(i).getDate());
+                result = true;
             }
         }
 
-        // Display de result in the java console
-        System.out.println(checkOut.toString());
+        // Display de result
+        if (result == true) {
+            response.sendRedirect("/config/operation_success");
+        } else {
+            response.sendRedirect("/config/operation_erro");
+        }
 
     }
 

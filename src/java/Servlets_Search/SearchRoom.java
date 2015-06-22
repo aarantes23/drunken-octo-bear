@@ -36,6 +36,7 @@ public class SearchRoom extends HttpServlet {
         Room room = new Room();
         RoomDao roomDao = new RoomDao();
         ArrayList<Room> arrayList = new ArrayList<Room>();
+        boolean result = false;
 
         // Recover the object cod
         room.setId(Integer.parseInt(request.getParameter("codigoBuscar")));
@@ -51,11 +52,16 @@ public class SearchRoom extends HttpServlet {
                 room.setAndar(arrayList.get(i).getAndar());
                 room.setTipo(arrayList.get(i).getTipo());
                 room.setValorDiaria(arrayList.get(i).getValorDiaria());
+                result = true;
             }
         }
 
-        // Display de result in the java console
-        System.out.println(room.toString());
+        // Display de result
+        if (result == true) {
+            response.sendRedirect("/config/operation_success");
+        } else {
+            response.sendRedirect("/config/operation_erro");
+        }
     }
 
 }

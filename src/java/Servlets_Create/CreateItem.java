@@ -34,15 +34,20 @@ public class CreateItem extends HttpServlet {
         // Objects used
         Item item = new Item();
         ItemDao itemDao = new ItemDao();
+        boolean result = false;
 
         // Fill the object with the data obtained
-        item.setValor(Float.parseFloat(request.getParameter("valor")));
-        item.setNome(request.getParameter("nome"));
+        item.setPrice(Float.parseFloat(request.getParameter("price")));
+        item.setName(request.getParameter("name"));
         
         // Insert in the database  
-        String result = itemDao.insert(item);
+        result = itemDao.insert(item);
         
-        // Display de result in the java console
-        System.out.println(result);
+        // Display de result
+        if (result == true){
+            response.sendRedirect("/config/operation_success");
+        } else {
+            response.sendRedirect("/config/operation_erro");
+        }
     }
 }

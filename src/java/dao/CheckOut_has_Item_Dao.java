@@ -7,7 +7,6 @@ package dao;
 
 import Beans.CheckOut_has_Item;
 import DbHelper.DbHelper;
-import Values.Strings;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,7 +17,6 @@ import java.util.ArrayList;
  */
 public class CheckOut_has_Item_Dao {
 
-    Strings strings = new Strings();
     DbHelper dbHelper = new DbHelper();
 
     public CheckOut_has_Item_Dao() {
@@ -28,9 +26,9 @@ public class CheckOut_has_Item_Dao {
      * Insert a new CheckOut_has_Item in the database
      *
      * @param checkOut_has_Item
-     * @return
+     * @return true for ok , false for erro
      */
-    public String insert(CheckOut_has_Item checkOut_has_Item) {
+    public boolean insert(CheckOut_has_Item checkOut_has_Item) {
         dbHelper.getConnection();
         String query = "INSERT INTO CheckOut_has_Item VALUES ("
                 + "" + checkOut_has_Item.getCheck_out_id() + ","
@@ -39,9 +37,9 @@ public class CheckOut_has_Item_Dao {
         try {
             dbHelper.stmt.execute(query);
             dbHelper.desconnect();
-            return (strings.insert_ok);
+            return true;
         } catch (SQLException ex) {
-            return (strings.insert_erro);
+            return false;
         }
     }
 

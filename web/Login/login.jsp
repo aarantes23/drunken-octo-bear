@@ -22,7 +22,7 @@
         <h1>Trip Hotel - Restricted Area </h1>
         <div class="registration">
             <div class="form-info">
-                <form>
+                <form action="../Login/index_after_login.jsp" method="post">
                     <h2>Login</h2>
                     <input type="text" class="text" placeholder="Username" required="true"/>
                     <input type="password" class="Password" placeholder="Password" required="true"/>

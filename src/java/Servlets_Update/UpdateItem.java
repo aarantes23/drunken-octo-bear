@@ -37,8 +37,8 @@ public class UpdateItem extends HttpServlet {
 
         // Fill the object with the data obtained
         item.setId(Integer.parseInt(request.getParameter("codigo")));
-        item.setValor(Float.parseFloat(request.getParameter("valor")));
-        item.setNome(request.getParameter("nome"));
+        item.setPrice(Float.parseFloat(request.getParameter("valor")));
+        item.setName(request.getParameter("nome"));
 
         // Update in the database     
         itemDao.update(item);

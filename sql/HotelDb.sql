@@ -15,48 +15,29 @@ CREATE SCHEMA IF NOT EXISTS `HotelDb` DEFAULT CHARACTER SET utf8 COLLATE utf8_ge
 USE `HotelDb` ;
 
 -- -----------------------------------------------------
--- Table `HotelDb`.`Quarto`
+-- Table `HotelDb`.`Room`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `HotelDb`.`Quarto` (
+CREATE TABLE IF NOT EXISTS `HotelDb`.`Room` (
   `id` INT NOT NULL,
-  `numero` INT NOT NULL,
-  `andar` VARCHAR(45) NOT NULL,
-  `tipo` VARCHAR(45) NOT NULL,
-  `valorDiaria` DOUBLE NOT NULL,
+  `number` INT NOT NULL,
+  `floot` VARCHAR(45) NOT NULL,
+  `type` VARCHAR(45) NOT NULL,
+  `dailyValue` DOUBLE NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `HotelDb`.`Cliente`
+-- Table `HotelDb`.`Client`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `HotelDb`.`Cliente` (
+CREATE TABLE IF NOT EXISTS `HotelDb`.`Client` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NOT NULL,
-  `endereco` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `address` VARCHAR(45) NOT NULL,
   `cpf` VARCHAR(45) NOT NULL,
   `rg` VARCHAR(45) NOT NULL,
-  `telefone` VARCHAR(45) NULL,
-  `sexo` VARCHAR(45) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `HotelDb`.`Usuario`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `HotelDb`.`Usuario` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NOT NULL,
-  `login` VARCHAR(45) NOT NULL,
-  `senha` VARCHAR(45) NOT NULL,
-  `cpf` VARCHAR(45) NOT NULL,
-  `telefone` VARCHAR(45) NOT NULL,
-  `endereco` VARCHAR(45) NOT NULL,
-  `rg` VARCHAR(45) NOT NULL,
-  `sexo` VARCHAR(45) NOT NULL,
-  `data_nascimento` VARCHAR(45) NOT NULL,
-  `tipo` INT NOT NULL,
+  `phone` VARCHAR(45) NOT NULL,
+  `sex` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -66,34 +47,66 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `HotelDb`.`Check_out` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `data` VARCHAR(45) NOT NULL,
+  `date` VARCHAR(45) NOT NULL,
+  `status` INT NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `HotelDb`.`Reserva`
+-- Table `HotelDb`.`User`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `HotelDb`.`Reserva` (
+CREATE TABLE IF NOT EXISTS `HotelDb`.`User` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `data_check_in` VARCHAR(45) NOT NULL,
-  `Cliente_id` INT NOT NULL,
-  `Usuario_id` INT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `login` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `cpf` VARCHAR(45) NOT NULL,
+  `phone` VARCHAR(45) NOT NULL,
+  `address` VARCHAR(45) NOT NULL,
+  `rg` VARCHAR(45) NOT NULL,
+  `sex` VARCHAR(45) NOT NULL,
+  `birthday` VARCHAR(45) NOT NULL,
+  `userType` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `HotelDb`.`Check_In`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `HotelDb`.`Check_In` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `date` VARCHAR(45) NOT NULL,
+  `status` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `HotelDb`.`Reservation`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `HotelDb`.`Reservation` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Room_id` INT NOT NULL,
+  `Client_id` INT NOT NULL,
+  `User_id` INT NOT NULL,
   `Check_out_id` INT NOT NULL,
-  `Quarto_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `Cliente_id`, `Usuario_id`, `Check_out_id`, `Quarto_id`),
-  INDEX `fk_Reserva_Cliente1_idx` (`Cliente_id` ASC),
-  INDEX `fk_Reserva_Usuario1_idx` (`Usuario_id` ASC),
+  `Check_In_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `Room_id`, `Client_id`, `User_id`, `Check_out_id`, `Check_In_id`),
+  INDEX `fk_Reserva_Quartos1_idx` (`Room_id` ASC),
+  INDEX `fk_Reserva_Cliente1_idx` (`Client_id` ASC),
   INDEX `fk_Reserva_Check_out1_idx` (`Check_out_id` ASC),
-  INDEX `fk_Reserva_Quarto1_idx` (`Quarto_id` ASC),
-  CONSTRAINT `fk_Reserva_Cliente1`
-    FOREIGN KEY (`Cliente_id`)
-    REFERENCES `HotelDb`.`Cliente` (`id`)
+  INDEX `fk_Reserva_Usuario1_idx` (`User_id` ASC),
+  INDEX `fk_Reserva_Check_In1_idx` (`Check_In_id` ASC),
+  CONSTRAINT `fk_Reserva_Quartos1`
+    FOREIGN KEY (`Room_id`)
+    REFERENCES `HotelDb`.`Room` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Reserva_Usuario1`
-    FOREIGN KEY (`Usuario_id`)
-    REFERENCES `HotelDb`.`Usuario` (`id`)
+  CONSTRAINT `fk_Reserva_Cliente1`
+    FOREIGN KEY (`Client_id`)
+    REFERENCES `HotelDb`.`Client` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Reserva_Check_out1`
@@ -101,9 +114,14 @@ CREATE TABLE IF NOT EXISTS `HotelDb`.`Reserva` (
     REFERENCES `HotelDb`.`Check_out` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Reserva_Quarto1`
-    FOREIGN KEY (`Quarto_id`)
-    REFERENCES `HotelDb`.`Quarto` (`id`)
+  CONSTRAINT `fk_Reserva_Usuario1`
+    FOREIGN KEY (`User_id`)
+    REFERENCES `HotelDb`.`User` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Reserva_Check_In1`
+    FOREIGN KEY (`Check_In_id`)
+    REFERENCES `HotelDb`.`Check_In` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -114,8 +132,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `HotelDb`.`Item` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(200) NOT NULL,
-  `valor` DOUBLE NOT NULL,
+  `name` VARCHAR(200) NOT NULL,
+  `price` DOUBLE NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
