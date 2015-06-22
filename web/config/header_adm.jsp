@@ -39,15 +39,15 @@
         </li>
         <li class='active has-sub'><a href='#'><span>Update</span></a>
             <ul>
-                <li class='has-sub'><a href='../Update/update_cliente.html'><span>Cliente</span></a></li>
-                <li class='has-sub'><a href='../Update/update_consumo.html'><span>Consumo</span></a></li>
-                <li class='has-sub'><a href='../Update/update_produto.html'><span>Produto</span></a></li>
-                <li class='has-sub'><a href='../Update/update_quarto.html'><span>Quarto</span></a></li>
-                <li class='has-sub'><a href='../Update/update_reserva.html'><span>Reserva</span></a></li>
-                <li class='has-sub'><a href='../Update/update_usuario.html'><span>Usuario</span></a></li>
+                <li class='has-sub'><a href='../Update/update_cliente.jsp'><span>Cliente</span></a></li>
+                <li class='has-sub'><a href='../Update/update_consumo.jsp'><span>Consumo</span></a></li>
+                <li class='has-sub'><a href='../Update/update_produto.jsp'><span>Produto</span></a></li>
+                <li class='has-sub'><a href='../Update/update_quarto.jsp'><span>Quarto</span></a></li>
+                <li class='has-sub'><a href='../Update/update_reserva.jsp'><span>Reserva</span></a></li>
+                <li class='has-sub'><a href='../Update/update_usuario.jsp'><span>Usuario</span></a></li>
             </ul>
         </li>
-        <li class='last'><a href='../Login/login.html'><span>Logoff</span></a></li>
+        <li class='last'><a href='../Login/login.jsp'><span>Logoff</span></a></li>
     </ul>    
 </ul>
 </div>

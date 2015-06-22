@@ -10,192 +10,192 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>CadastraCliente</servlet-name>
-        <servlet-class>Servlets_Create.CadastraCliente</servlet-class>
+        <servlet-name>CreateCliente</servlet-name>
+        <servlet-class>Servlets_Create.CreateCliente</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CadastraConsumo</servlet-name>
-        <servlet-class>Servlets_Create.CadastraConsumo</servlet-class>
+        <servlet-name>CreateConsumo</servlet-name>
+        <servlet-class>Servlets_Create.CreateConsumo</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CadastraProduto</servlet-name>
-        <servlet-class>Servlets_Create.CadastraProduto</servlet-class>
+        <servlet-name>CreateProduto</servlet-name>
+        <servlet-class>Servlets_Create.CreateProduto</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CadastraQuarto</servlet-name>
-        <servlet-class>Servlets_Create.CadastrarQuarto</servlet-class>
+        <servlet-name>CreateQuarto</servlet-name>
+        <servlet-class>Servlets_Create.CreaterQuarto</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CadastraReserva</servlet-name>
-        <servlet-class>Servlets_Create.CadastraReserva</servlet-class>
+        <servlet-name>CreateReserva</servlet-name>
+        <servlet-class>Servlets_Create.CreateReserva</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CadastraUsuario</servlet-name>
-        <servlet-class>Servlets_Create.CadastraUsuario</servlet-class>
+        <servlet-name>CreateUsuario</servlet-name>
+        <servlet-class>Servlets_Create.CreateUsuario</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RemoverCliente</servlet-name>
-        <servlet-class>Servlets_Delete.RemoverCliente</servlet-class>
+        <servlet-name>DeleteCliente</servlet-name>
+        <servlet-class>Servlets_Delete.DeleteCliente</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RemoverConsumo</servlet-name>
-        <servlet-class>Servlets_Delete.RemoverConsumo</servlet-class>
+        <servlet-name>DeleteConsumo</servlet-name>
+        <servlet-class>Servlets_Delete.DeleteConsumo</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RemoverProduto</servlet-name>
-        <servlet-class>Servlets_Delete.RemoverProduto</servlet-class>
+        <servlet-name>DeleteProduto</servlet-name>
+        <servlet-class>Servlets_Delete.DeleteProduto</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RemoverQuarto</servlet-name>
-        <servlet-class>Servlets_Delete.RemoverQuarto</servlet-class>
+        <servlet-name>DeleteQuarto</servlet-name>
+        <servlet-class>Servlets_Delete.DeleteQuarto</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RemoverUsuario</servlet-name>
-        <servlet-class>Servlets_Delete.RemoverUsuario</servlet-class>
+        <servlet-name>DeleteUsuario</servlet-name>
+        <servlet-class>Servlets_Delete.DeleteUsuario</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RemoverReserva</servlet-name>
-        <servlet-class>Servlets_Delete.RemoverReserva</servlet-class>
+        <servlet-name>DeleteReserva</servlet-name>
+        <servlet-class>Servlets_Delete.DeleteReserva</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ProcurarCliente</servlet-name>
-        <servlet-class>Servlets_Search.ProcurarCliente</servlet-class>
+        <servlet-name>SearchCliente</servlet-name>
+        <servlet-class>Servlets_Search.SearchCheckOut_has_Item</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ProcurarConsumo</servlet-name>
-        <servlet-class>Servlets_Search.ProcurarConsumo</servlet-class>
+        <servlet-name>SearchConsumo</servlet-name>
+        <servlet-class>Servlets_Search.SearchConsumo</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ProcurarProduto</servlet-name>
-        <servlet-class>Servlets_Search.ProcurarProduto</servlet-class>
+        <servlet-name>SearchProduto</servlet-name>
+        <servlet-class>Servlets_Search.SearchProduto</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ProcurarQuarto</servlet-name>
-        <servlet-class>Servlets_Search.ProcurarQuarto</servlet-class>
+        <servlet-name>SearchQuarto</servlet-name>
+        <servlet-class>Servlets_Search.SearchQuarto</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ProcurarReserva</servlet-name>
-        <servlet-class>Servlets_Search.ProcurarReserva</servlet-class>
+        <servlet-name>SearchReserva</servlet-name>
+        <servlet-class>Servlets_Search.SearchReserva</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AtualizaCliente</servlet-name>
-        <servlet-class>Servlets_Update.AtualizaCliente</servlet-class>
+        <servlet-name>UpdateCliente</servlet-name>
+        <servlet-class>Servlets_Update.UpdateCliente</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AtualizaConsumo</servlet-name>
-        <servlet-class>Servlets_Update.AtualizaConsumo</servlet-class>
+        <servlet-name>UpdateConsumo</servlet-name>
+        <servlet-class>Servlets_Update.UpdateConsumo</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AtualizaProduto</servlet-name>
-        <servlet-class>Servlets_Update.AtualizaProduto</servlet-class>
+        <servlet-name>UpdateProduto</servlet-name>
+        <servlet-class>Servlets_Update.UpdateProduto</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AtualizaQuarto</servlet-name>
-        <servlet-class>Servlets_Update.AtualizaQuarto</servlet-class>
+        <servlet-name>UpdateQuarto</servlet-name>
+        <servlet-class>Servlets_Update.UpdateQuarto</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AtualizaReserva</servlet-name>
-        <servlet-class>Servlets_Update.AtualizaReserva</servlet-class>
+        <servlet-name>UpdateReserva</servlet-name>
+        <servlet-class>Servlets_Update.UpdateCheckOut</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AtualizaUsuario</servlet-name>
-        <servlet-class>Servlets_Update.AtualizaUsuario</servlet-class>
+        <servlet-name>UpdateUsuario</servlet-name>
+        <servlet-class>Servlets_Update.UpdateUsuario</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CadastraCliente</servlet-name>
-        <url-pattern>/CadastraCliente</url-pattern>
+        <servlet-name>CreateCliente</servlet-name>
+        <url-pattern>/CreateCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CadastraConsumo</servlet-name>
-        <url-pattern>/CadastraConsumo</url-pattern>
+        <servlet-name>CreateConsumo</servlet-name>
+        <url-pattern>/CreateConsumo</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CadastraProduto</servlet-name>
-        <url-pattern>/CadastraProduto</url-pattern>
+        <servlet-name>CreateProduto</servlet-name>
+        <url-pattern>/CreateProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CadastraQuarto</servlet-name>
-        <url-pattern>/CadastraQuarto</url-pattern>
+        <servlet-name>CreateQuarto</servlet-name>
+        <url-pattern>/CreateQuarto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CadastraReserva</servlet-name>
-        <url-pattern>/CadastraReserva</url-pattern>
+        <servlet-name>CreateReserva</servlet-name>
+        <url-pattern>/CreateReserva</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CadastraUsuario</servlet-name>
-        <url-pattern>/CadastraUsuario</url-pattern>
+        <servlet-name>CreateUsuario</servlet-name>
+        <url-pattern>/CreateUsuario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RemoverCliente</servlet-name>
-        <url-pattern>/RemoverCliente</url-pattern>
+        <servlet-name>DeleteCliente</servlet-name>
+        <url-pattern>/DeleteCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RemoverConsumo</servlet-name>
-        <url-pattern>/RemoverConsumo</url-pattern>
+        <servlet-name>DeleteConsumo</servlet-name>
+        <url-pattern>/DeleteConsumo</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RemoverProduto</servlet-name>
-        <url-pattern>/RemoverProduto</url-pattern>
+        <servlet-name>DeleteProduto</servlet-name>
+        <url-pattern>/DeleteProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RemoverQuarto</servlet-name>
-        <url-pattern>/RemoverQuarto</url-pattern>
+        <servlet-name>DeleteQuarto</servlet-name>
+        <url-pattern>/DeleteQuarto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RemoverUsuario</servlet-name>
-        <url-pattern>/RemoverUsuario</url-pattern>
+        <servlet-name>DeleteUsuario</servlet-name>
+        <url-pattern>/DeleteUsuario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RemoverReserva</servlet-name>
-        <url-pattern>/RemoverReserva</url-pattern>
+        <servlet-name>DeleteReserva</servlet-name>
+        <url-pattern>/DeleteReserva</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ProcurarCliente</servlet-name>
-        <url-pattern>/ProcurarCliente</url-pattern>
+        <servlet-name>SearchCliente</servlet-name>
+        <url-pattern>/SearchCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ProcurarConsumo</servlet-name>
-        <url-pattern>/ProcurarConsumo</url-pattern>
+        <servlet-name>SearchConsumo</servlet-name>
+        <url-pattern>/SearchConsumo</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ProcurarProduto</servlet-name>
-        <url-pattern>/ProcurarProduto</url-pattern>
+        <servlet-name>SearchProduto</servlet-name>
+        <url-pattern>/SearchProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ProcurarQuarto</servlet-name>
-        <url-pattern>/ProcurarQuarto</url-pattern>
+        <servlet-name>SearchQuarto</servlet-name>
+        <url-pattern>/SearchQuarto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ProcurarReserva</servlet-name>
-        <url-pattern>/ProcurarReserva</url-pattern>
+        <servlet-name>SearchReserva</servlet-name>
+        <url-pattern>/SearchReserva</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AtualizaCliente</servlet-name>
-        <url-pattern>/AtualizaCliente</url-pattern>
+        <servlet-name>UpdateCliente</servlet-name>
+        <url-pattern>/UpdateCliente</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AtualizaConsumo</servlet-name>
-        <url-pattern>/AtualizaConsumo</url-pattern>
+        <servlet-name>UpdateConsumo</servlet-name>
+        <url-pattern>/UpdateConsumo</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AtualizaProduto</servlet-name>
-        <url-pattern>/AtualizaProduto</url-pattern>
+        <servlet-name>UpdateProduto</servlet-name>
+        <url-pattern>/UpdateProduto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AtualizaQuarto</servlet-name>
-        <url-pattern>/AtualizaQuarto</url-pattern>
+        <servlet-name>UpdateQuarto</servlet-name>
+        <url-pattern>/UpdateQuarto</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AtualizaReserva</servlet-name>
-        <url-pattern>/AtualizaReserva</url-pattern>
+        <servlet-name>UpdateReserva</servlet-name>
+        <url-pattern>/UpdateReserva</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>AtualizaUsuario</servlet-name>
-        <url-pattern>/AtualizaUsuario</url-pattern>
+        <servlet-name>UpdateUsuario</servlet-name>
+        <url-pattern>/UpdateUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
