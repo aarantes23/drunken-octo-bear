@@ -3,6 +3,26 @@
     Created on : 21-Jun-2015, 16:51:33
     Author     : Arthur
 --%>
+  
+<%@page import="Beans.User"%>
+<%  
+    // <jsp:include page="sessao.jsp" />
+    request.getSession(false).setMaxInactiveInterval(3000);  
+    int duracaoSessao = request.getSession(false).getMaxInactiveInterval();  
+    long now = System.currentTimeMillis();  
+    long ultimoAcesso = request.getSession(false).getLastAccessedTime();  
+    User usuario = new User();  
+    
+    if (now - ultimoAcesso > duracaoSessao) { 
+        usuario = new User();
+        session.invalidate();
+    //    out.println("sessão expirou");  
+    } else {                      
+                                      
+        usuario = (User) request.getSession(true).getAttribute("login");       
+    //    out.println("sessão válida");                                                  
+    }  
+%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -23,6 +43,7 @@
         <!--Datepicker ends-->
     </head>
     <body>
+        <% if ((request.getSession(true).getAttribute("login") != null) && ((usuario.getUserType() == 2))){ %>
         <%@include file="../config/header_adm.jsp" %>
         <%@include file="../config/body_config.jsp" %>
         <div class="friend">
@@ -37,5 +58,6 @@
                         </form>
                     </div>                
                     <%@include file="../config/footer.jsp" %>
-                    </body>
-                    </html>
+        <% } else{ response.sendRedirect("index.jsp"); } %>
+    </body>
+</html>
