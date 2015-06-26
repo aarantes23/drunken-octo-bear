@@ -4,7 +4,27 @@
     Author     : Arthur
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>  
+<%@page import="Beans.User"%>
+<%  
+    // <jsp:include page="sessao.jsp" />
+    request.getSession(false).setMaxInactiveInterval(3000);  
+    int duracaoSessao = request.getSession(false).getMaxInactiveInterval();  
+    long now = System.currentTimeMillis();  
+    long ultimoAcesso = request.getSession(false).getLastAccessedTime();  
+    User usuario = new User();  
+    
+    if (now - ultimoAcesso > duracaoSessao) { 
+        usuario = new User();
+        session.invalidate();
+    //    out.println("sessão expirou");  
+    } else {                      
+                                      
+        usuario = (User) request.getSession(true).getAttribute("login");       
+    //    out.println("sessão válida");                                                  
+    }  
+%>
+
 <!DOCTYPE html>
 <html>	
     <head>
@@ -19,6 +39,7 @@
         <!--//webfonts-->
     </head>
     <body>
+        <% if ((request.getSession(true).getAttribute("login") == null)){ %>
         <h1>Trip Hotel - Restricted Area </h1>
         <div class="registration">
             <div class="form-info">
@@ -26,7 +47,7 @@
                     <h2>Login</h2>
                     <input type="text" class="text" placeholder="Username" required="true"/>
                     <input type="password" class="Password" placeholder="Password" required="true"/>
-                    <div class="btn"><input type="submit" value="Login"></div>
+                    <div class="btn"><input type="submit" value="Login" name="login"></div>
                     <div class="roundedOne">
                         <input type="checkbox" value="None" id="roundedOne" name="check" />
                         <label for="roundedOne"> </label>
@@ -40,5 +61,6 @@
         <div class="copy-rights">
             <p>Developed by Arthur Arantes Faria, arthurarantes23@hotmail.com </p>
         </div>
+        <% } else{ response.sendRedirect("login.jsp"); } %>
     </body>
 </html>

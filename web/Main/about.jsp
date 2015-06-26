@@ -4,7 +4,27 @@
     Author     : Arthur
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>  
+<%@page import="Beans.User"%>
+<%  
+    // <jsp:include page="sessao.jsp" />
+    request.getSession(false).setMaxInactiveInterval(3000);  
+    int duracaoSessao = request.getSession(false).getMaxInactiveInterval();  
+    long now = System.currentTimeMillis();  
+    long ultimoAcesso = request.getSession(false).getLastAccessedTime();  
+    User usuario = new User();  
+    
+    if (now - ultimoAcesso > duracaoSessao) { 
+        usuario = new User();
+        session.invalidate();
+    //    out.println("sessão expirou");  
+    } else {                      
+                                      
+        usuario = (User) request.getSession(true).getAttribute("login");       
+    //    out.println("sessão válida");                                                  
+    }  
+%>
+
 <!DOCTYPE HTML>
 <html>
     <head>

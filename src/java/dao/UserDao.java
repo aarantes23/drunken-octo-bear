@@ -86,6 +86,35 @@ public class UserDao {
         return arrayList;
     }
 
+    public User login(String usuario, String senha) {  
+        User user = new User();
+        dbHelper.getConnection();
+        String query = "SELECT * FROM User where login = "+ usuario +" and passeotd = "+senha+";";
+        ResultSet resultSet;
+        try {
+            resultSet = dbHelper.stmt.executeQuery(query);
+            while (resultSet.next()) {
+                user.setId(resultSet.getInt(1));
+                user.setName(resultSet.getString(2));
+                user.setLogin(resultSet.getString(3));
+                user.setPassword(resultSet.getString(4));
+                user.setCpf(resultSet.getString(5));
+                user.setPhone(resultSet.getString(6));
+                user.setAddress(resultSet.getString(7));
+                user.setRg(resultSet.getString(8));
+                user.setSex(resultSet.getString(9));
+                user.setBirthday(resultSet.getString(10));
+                user.setUserType(resultSet.getInt(11));      
+                break;
+            }
+            resultSet.close();
+        } catch (SQLException ex) {
+        }
+        dbHelper.desconnect();
+        return user;
+    }    
+    
+    
     /**
      * Update a single User in the database
      *
