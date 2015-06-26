@@ -30,7 +30,7 @@ public class ItemDao {
      */
     public boolean insert(Item item) {
         dbHelper.getConnection();
-        String query = "INSERT INTO Item VALUES ("
+        String query = "INSERT INTO item VALUES ("
                 + "" + item.getId() + ","
                 + "'" + item.getName()+ "',"
                 + "" + item.getPrice()
@@ -52,7 +52,7 @@ public class ItemDao {
     public ArrayList<Item> search() {
         dbHelper.getConnection();
         ArrayList<Item> arrayList = new ArrayList<Item>();
-        String query = "SELECT * FROM Item";
+        String query = "SELECT * FROM item";
         ResultSet resultSet;
         try {
             resultSet = dbHelper.stmt.executeQuery(query);
@@ -78,7 +78,7 @@ public class ItemDao {
      */
     public boolean update(Item item) {
         dbHelper.getConnection();
-        String query = "UPDATE Item SET "                
+        String query = "UPDATE item SET "                
                 + " name = '" + item.getName() + "',"
                 + " price = " + item.getPrice()
                 + " WHERE id = " + item.getId();

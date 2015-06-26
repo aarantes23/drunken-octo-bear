@@ -19,7 +19,7 @@
                 <div class="friend-main">
                     <div class="friend-top">
                         <h3>Create New Reservation</h3>
-                        <form action="CreateReservation" method="post">
+                        <form action="../dao/Create/insert_reservation.jsp" method="post">
                             <p>Room code : <input name="room_id" type="number" id="room_id" required="true"</p>                        
                             <p>Client code : <input name="client_id" type="number" id="client_id" required="true"</p>
                             <p>User Responsible code : <input name="user_id" type="number" id="user_id" required="true"</p>

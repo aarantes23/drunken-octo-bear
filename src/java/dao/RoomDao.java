@@ -30,12 +30,12 @@ public class RoomDao {
      */
     public boolean insert(Room room) {
         dbHelper.getConnection();
-        String query = "INSERT INTO Room VALUES ("
+        String query = "INSERT INTO room VALUES ("
                 + "" + room.getId() + ","
-                + "" + room.getNumero() + ","
-                + "'" + room.getAndar() + "',"
-                + "'" + room.getTipo() + "',"
-                + "" + room.getValorDiaria()
+                + "" + room.getNumber() + ","
+                + "'" + room.getFloor() + "',"
+                + "'" + room.getType() + "',"
+                + "" + room.getDaily_value()
                 + ");";
         try {
             dbHelper.stmt.execute(query);
@@ -54,17 +54,17 @@ public class RoomDao {
     public ArrayList<Room> search() {
         ArrayList<Room> arrayList = new ArrayList<Room>();
         dbHelper.getConnection();
-        String query = "SELECT * FROM Room";
+        String query = "SELECT * FROM room";
         ResultSet resultSet;
         try {
             resultSet = dbHelper.stmt.executeQuery(query);
             while (resultSet.next()) {
                 Room room = new Room();
                 room.setId(resultSet.getInt(1));
-                room.setNumero(resultSet.getInt(2));
-                room.setAndar(resultSet.getString(3));
-                room.setTipo(resultSet.getString(4));
-                room.setValorDiaria(resultSet.getInt(5));
+                room.setNumber(resultSet.getInt(2));
+                room.setFloor(resultSet.getString(3));
+                room.setType(resultSet.getString(4));
+                room.setDaily_value(resultSet.getInt(5));
                 arrayList.add(room);
             }
             resultSet.close();
@@ -82,11 +82,11 @@ public class RoomDao {
      */
     public boolean update(Room room) {
         dbHelper.getConnection();
-        String query = "UPDATE Room SET "
-                + " number = " + room.getNumero() + ","
-                + " floot = '" + room.getAndar() + "',"
-                + " type = '" + room.getTipo() + "',"
-                + " dailyValue = " + room.getValorDiaria()
+        String query = "UPDATE room SET "
+                + " number = " + room.getNumber() + ","
+                + " floot = '" + room.getFloor() + "',"
+                + " type = '" + room.getType() + "',"
+                + " dailyValue = " + room.getDaily_value()
                 + " WHERE id = " + room.getId();
         try {
             dbHelper.stmt.execute(query);
@@ -106,7 +106,7 @@ public class RoomDao {
      */
     public boolean delete(Room room) {
         dbHelper.getConnection();
-                String query = "DELETE FROM Room  "
+                String query = "DELETE FROM room  "
                 + " WHERE id = " + room.getId();
         try {
             dbHelper.stmt.execute(query);

@@ -13,10 +13,10 @@ package Beans;
 public class Room {
     
     private int id;
-    private int numero;
-    private String andar;
-    private String tipo;
-    private float valorDiaria;
+    private int number;
+    private String floor;
+    private String type;
+    private double daily_value;
 
     public Room() {
     }   
@@ -29,36 +29,36 @@ public class Room {
         this.id = id;
     }
 
-    public int getNumero() {
-        return numero;
+    public int getNumber() {
+        return number;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setNumber(int number) {
+        this.number = number;
     }
 
-    public String getAndar() {
-        return andar;
+    public String getFloor() {
+        return floor;
     }
 
-    public void setAndar(String andar) {
-        this.andar = andar;
+    public void setFloor(String floor) {
+        this.floor = floor;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getType() {
+        return type;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public float getValorDiaria() {
-        return valorDiaria;
+    public double getDaily_value() {
+        return daily_value;
     }
 
-    public void setValorDiaria(float valorDiaria) {
-        this.valorDiaria = valorDiaria;
+    public void setDaily_value(double daily_value) {
+        this.daily_value = daily_value;
     }
 
     

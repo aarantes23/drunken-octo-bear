@@ -30,7 +30,7 @@ public class CheckOut_has_Item_Dao {
      */
     public boolean insert(CheckOut_has_Item checkOut_has_Item) {
         dbHelper.getConnection();
-        String query = "INSERT INTO CheckOut_has_Item VALUES ("
+        String query = "INSERT INTO check_out_has_item VALUES ("
                 + "" + checkOut_has_Item.getCheck_out_id() + ","
                 + "" + checkOut_has_Item.getItem_id() + ""
                 + ");";
@@ -51,7 +51,7 @@ public class CheckOut_has_Item_Dao {
     public ArrayList<CheckOut_has_Item> search() {
         ArrayList<CheckOut_has_Item> arrayList = new ArrayList<CheckOut_has_Item>();
         dbHelper.getConnection();
-        String query = "SELECT * FROM CheckOut_has_Item";
+        String query = "SELECT * FROM check_out_has_item";
         ResultSet resultSet;
         try {
             resultSet = dbHelper.stmt.executeQuery(query);

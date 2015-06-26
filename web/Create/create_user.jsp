@@ -19,7 +19,7 @@
                 <div class="friend-main">
                     <div class="friend-top">
                         <h3>Create New User</h3>
-                        <form action="CreateUser" method="post">
+                        <form action="../dao/Create/insert_user.jsp" method="post">
                             <p>Name : <input name="name" type="text" id="name" required="true"</p>
                             <p>Login : <input name="login" type="text" id="login" required="true"</p>
                             <p>Password : <input name="password" type="password" id="password" required="true"</p>

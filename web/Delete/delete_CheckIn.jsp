@@ -19,7 +19,7 @@
                 <div class="friend-main">
                     <div class="friend-top">
                         <h3>Delete CheckIn</h3>
-                        <form action="DeleteCheckIn" method="post">
+                        <form action="../dao/Delete/delete_checkIn.jsp" method="post">
                             <p>CheckIn code : <input name="code" type="number" id="code" required="true"</p>                        
                             <p><input type="submit" value="Delete"></p>
                         </form>

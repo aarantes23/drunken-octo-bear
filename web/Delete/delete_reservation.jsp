@@ -19,7 +19,7 @@
                 <div class="friend-main">
                     <div class="friend-top">
                         <h3>Delete Reservation</h3>
-                        <form action="DeleteReservation" method="post">
+                        <form action="../dao/Delete/delete_reservation.jsp" method="post">
                             <p>Reservation code : <input name="code" type="number" id="code" required="true"</p>                        
                             <p><input type="submit" value="Delete"></p>
                         </form>

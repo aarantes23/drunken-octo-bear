@@ -19,7 +19,7 @@
                 <div class="friend-main">
                     <div class="friend-top">
                         <h3>Create New Item</h3>
-                        <form action="CreateItem" method="post">
+                        <form action="../dao/Create/insert_item.jsp" method="post">
                             <p>Name : <input name="name" type="text" id="name" required="true"</p>
                             <p>Price : <input name="price" type="number" id="price" required="true"</p>                            
                             <p><input type="submit" value="Create"></p>

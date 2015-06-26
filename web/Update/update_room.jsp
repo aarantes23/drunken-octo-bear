@@ -19,7 +19,7 @@
                 <div class="friend-main">
                     <div class="friend-top">
                         <h3>Update Room</h3>
-                        <form action="UpdateRoom" method="post">
+                        <form action="../dao/Update/update_room.jsp" method="post">
                             <p>Code : <input name="code" type="number" id="code" required="true"</p>                            
                             <p>New Number : <input name="number" type="number" id="number"</p>
                             <p>New Floor : <input name="floor" type="number" id="floor"</p>                            

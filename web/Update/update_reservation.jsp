@@ -19,7 +19,7 @@
                 <div class="friend-main">
                     <div class="friend-top">
                         <h3>Update Reservation</h3>
-                        <form action="UpdateReservation" method="post">
+                        <form action="../dao/Update/update_reservation.jsp" method="post">
                             <p>Code : <input name="code" type="number" id="code" required="true"</p>                            
                             <p>New Check in Date: <input name="check_in_date" type="number" id="check_in_date" required="true"</p>                                                    
                             <p>New Room code : <input name="room_id" type="number" id="room_id" required="true"</p>                        
@@ -28,7 +28,6 @@
                             <p>New Check out code : <input name="check_out_id" type="number" id="check_out_id" required="true"</p>                        
                             <p><input type="submit" value="Update"></p>
                         </form>
-
                     </div>                
                     <%@include file="../config/footer.jsp" %>
                     </body>

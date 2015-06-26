@@ -19,7 +19,7 @@
                 <div class="friend-main">
                     <div class="friend-top">
                         <h3>Update Item</h3>
-                        <form action="UpdateItem" method="post">
+                        <form action="../dao/Update/update_item.jsp" method="post">
                             <p>Code : <input name="code" type="number" id="code" required="true"</p>                            
                             <p>New Name : <input name="name" type="text" id="name" required="true"</p>
                             <p>New Price : <input name="price" type="number" id="price" required="true"</p>                            

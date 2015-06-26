@@ -30,7 +30,7 @@ public class UserDao {
      */
     public boolean insert(User user) {
         dbHelper.getConnection();
-        String query = "INSERT INTO User VALUES ("
+        String query = "INSERT INTO user VALUES ("
                 + "" + user.getId() + ","
                 + "'" + user.getName() + "',"
                 + "'" + user.getLogin() + "',"
@@ -60,7 +60,7 @@ public class UserDao {
     public ArrayList<User> search() {
         ArrayList<User> arrayList = new ArrayList<User>();
         dbHelper.getConnection();
-        String query = "SELECT * FROM User";
+        String query = "SELECT * FROM user";
         ResultSet resultSet;
         try {
             resultSet = dbHelper.stmt.executeQuery(query);
@@ -76,7 +76,7 @@ public class UserDao {
                 user.setRg(resultSet.getString(8));
                 user.setSex(resultSet.getString(9));
                 user.setBirthday(resultSet.getString(10));
-                user.setUserType(resultSet.getInt(11));                 
+                user.setUserType(resultSet.getInt(11));
                 arrayList.add(user);
             }
             resultSet.close();
@@ -94,7 +94,7 @@ public class UserDao {
      */
     public boolean update(User user) {
         dbHelper.getConnection();
-        String query = "UPDATE User SET "
+        String query = "UPDATE user SET "
                 + " name = '" + user.getName() + "',"
                 + " login = '" + user.getLogin() + "',"
                 + " password = '" + user.getPassword() + "',"
@@ -125,7 +125,7 @@ public class UserDao {
      */
     public boolean delete(User user) {
         dbHelper.getConnection();
-        String query = "DELETE FROM Usuario"
+        String query = "DELETE FROM user"
                 + " WHERE id = " + user.getId();
         try {
             dbHelper.stmt.execute(query);
@@ -136,4 +136,5 @@ public class UserDao {
             return true;
         }
     }
+
 }

@@ -30,7 +30,7 @@ public class ClientDao {
      */
     public boolean insert(Client cliente) {
         dbHelper.getConnection();
-        String query = "INSERT INTO Client VALUES ("
+        String query = "INSERT INTO client VALUES ("
                 + "" + cliente.getId() + ","
                 + "'" + cliente.getName() + "',"
                 + "'" + cliente.getAddress() + "',"
@@ -56,7 +56,7 @@ public class ClientDao {
     public ArrayList<Client> search() {
         ArrayList<Client> arrayList = new ArrayList<Client>();
         dbHelper.getConnection();
-        String query = "SELECT * FROM Client";
+        String query = "SELECT * FROM client";
         ResultSet resultSet;
         try {
             resultSet = dbHelper.stmt.executeQuery(query);
@@ -86,7 +86,7 @@ public class ClientDao {
      */
     public boolean update(Client cliente) {
         dbHelper.getConnection();
-        String query = "UPDATE Client SET "
+        String query = "UPDATE client SET "
                 + " name = '" + cliente.getName() + "',"
                 + " address = '" + cliente.getAddress() + "',"
                 + " cpf = '" + cliente.getCpf() + "',"
@@ -112,7 +112,7 @@ public class ClientDao {
      */
     public boolean delete(Client cliente) {
         dbHelper.getConnection();
-        String query = "DELETE FROM Client "
+        String query = "DELETE FROM client "
                 + " WHERE id = " + cliente.getId();
         try {
             dbHelper.stmt.execute(query);

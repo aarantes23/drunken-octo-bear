@@ -19,11 +19,11 @@
                 <div class="friend-main">
                     <div class="friend-top">
                         <h3>Create New Client</h3>
-                        <form  method="post" action="CreateCliente">
+                        <form  method="post" action="../dao/Create/insert_client.jsp">
                             <p>Name : <input name="name" type="text" id="name" required="true"</p>
                             <p>Address : <input name="address" type="text" id="address" required="true"</p>
-                            <p>Cpf : <input name="bairro" type="text" id="cpf" required="true"</p>
-                            <p>Rg : <input name="cep" type="text" id="rg" required="true"</p>                            
+                            <p>Cpf : <input name="cpf" type="text" id="cpf" required="true"</p>
+                            <p>Rg : <input name="rg" type="text" id="rg" required="true"</p>                            
                             <p>Phone : <input name="phone" type="text" id="phone" required="true"</p>
                             <p>Sex : <input name="sex" type="text" id="sex" required="true"</p>
                             <p><input type="submit" value="Create"></p>

@@ -8,7 +8,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Trip hotel - Welcome Admin</title>
+        <title>Trip hotel - Welcome</title>
         <%@include file="../config/start_template.jsp" %>
     </head>
     <body>              
@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="friend-main">
                     <div class="friend-top">
-                        <h3>Welcome Admin</h3>
+                        <h3>Welcome</h3>
                         <p>Choose what do you want manager in the top menu bar</p>
                     </div>                
                     <%@include file="../config/footer.jsp" %>

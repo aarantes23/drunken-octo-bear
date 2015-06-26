@@ -30,7 +30,7 @@ public class CheckOutDao {
      */
     public boolean insert(CheckOut checkOut) {
         dbHelper.getConnection();
-        String query = "INSERT INTO Check_out VALUES ("
+        String query = "INSERT INTO check_out VALUES ("
                 + "" + checkOut.getId() + ","
                 + "'" + checkOut.getDate() + "',"
                 + "" + checkOut.getStatus()
@@ -52,7 +52,7 @@ public class CheckOutDao {
     public ArrayList<CheckOut> search() {
         ArrayList<CheckOut> arrayList = new ArrayList<CheckOut>();
         dbHelper.getConnection();
-        String query = "SELECT * FROM Check_out";
+        String query = "SELECT * FROM check_out";
         ResultSet resultSet;
         try {
             resultSet = dbHelper.stmt.executeQuery(query);
@@ -79,7 +79,7 @@ public class CheckOutDao {
      */
     public boolean update(CheckOut checkOut) {
         dbHelper.getConnection();
-        String query = "UPDATE Check_out SET "
+        String query = "UPDATE check_out SET "
                 + " date = '" + checkOut.getDate() + "',"
                 + " status = " + checkOut.getStatus()
                 + " WHERE id = " + checkOut.getId();
@@ -102,7 +102,7 @@ public class CheckOutDao {
      */
     public boolean delete(CheckOut checkOut) {
         dbHelper.getConnection();
-        String query = "DELETE FROM Check_out "
+        String query = "DELETE FROM check_out "
                 + " WHERE id = " + checkOut.getId();
         try {
             dbHelper.stmt.execute(query);

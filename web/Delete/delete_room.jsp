@@ -19,7 +19,7 @@
                 <div class="friend-main">
                     <div class="friend-top">
                         <h3>Delete Room</h3>
-                        <form action="DeleteRoome" method="post">
+                        <form action="../Delete/delete_room.jsp" method="post">
                             <p>Room code : <input name="code" type="number" id="code" required="true"</p>                        
                             <p><input type="submit" value="Delete"></p>
                         </form>

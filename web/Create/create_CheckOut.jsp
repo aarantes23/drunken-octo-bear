@@ -10,6 +10,17 @@
     <head>
         <title>Trip hotel - Create new CheckOut</title>
         <%@include file="../config/start_template.jsp" %>
+        <!--Datepicker Start-->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script>
+            $(function () {
+                $("#date").datepicker();
+            });
+        </script>
+        <!--Datepicker ends-->
     </head>
     <body>
         <%@include file="../config/header_adm.jsp" %>
@@ -18,8 +29,12 @@
             <div class="container">
                 <div class="friend-main">
                     <div class="friend-top">
-                        <h3>Create New CheckOut</h3>
-                        <p>Under development</p>
+                        <h3>Create CheckOut</h3>
+                        <form action="../dao/Create/insert_checkOut.jsp" method="post">
+                            <p>Date : <input name="date" type="text" id="date" required="true"</p>
+                            <p>Status : <input name="status" type="number" id="status" required="true"</p>                            
+                            <p><input type="submit" value="Update"></p>
+                        </form>
                     </div>                
                     <%@include file="../config/footer.jsp" %>
                     </body>

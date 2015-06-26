@@ -30,7 +30,7 @@ public class CheckInDao {
      */
     public boolean insert(CheckIn checkIn) {
         dbHelper.getConnection();
-        String query = "INSERT INTO Check_in VALUES ("
+        String query = "INSERT INTO check_in VALUES ("
                 + "" + checkIn.getId() + ","
                 + "'" + checkIn.getDate() + "',"
                 + "" + checkIn.getStatus() + ""
@@ -52,7 +52,7 @@ public class CheckInDao {
     public ArrayList<CheckIn> search() {
         ArrayList<CheckIn> arrayList = new ArrayList<CheckIn>();
         dbHelper.getConnection();
-        String query = "SELECT * FROM Check_in";
+        String query = "SELECT * FROM check_in";
         ResultSet resultSet;
         try {
             resultSet = dbHelper.stmt.executeQuery(query);
@@ -79,9 +79,9 @@ public class CheckInDao {
      */
     public boolean update(CheckIn checkIn) {
         dbHelper.getConnection();
-        String query = "UPDATE Check_in SET "
+        String query = "UPDATE check_in SET "
                 + " date = '" + checkIn.getDate() + "',"
-                + " status = '" + checkIn.getStatus()   
+                + " status = " + checkIn.getStatus()   
                 + " WHERE id = " + checkIn.getId();
         try {
             dbHelper.stmt.execute(query);
@@ -102,7 +102,7 @@ public class CheckInDao {
      */
     public boolean delete(CheckIn checkIn) {
         dbHelper.getConnection();
-        String query = "DELETE FROM Check_in "
+        String query = "DELETE FROM check_in "
                 + " WHERE id = " + checkIn.getId();
         try {
             dbHelper.stmt.execute(query);

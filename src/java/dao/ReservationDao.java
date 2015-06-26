@@ -30,7 +30,7 @@ public class ReservationDao {
      */
     public boolean insert(Reservation reservation) {
         dbHelper.getConnection();
-        String query = "INSERT INTO Reservation VALUES ("
+        String query = "INSERT INTO reservation VALUES ("
                 + "" + reservation.getId() + ","
                 + "" + reservation.getRoom_id() + ","
                 + "" + reservation.getClient_id() + ","
@@ -55,7 +55,7 @@ public class ReservationDao {
     public ArrayList<Reservation> search() {
         ArrayList<Reservation> arrayList = new ArrayList<Reservation>();
         dbHelper.getConnection();
-        String query = "SELECT * FROM Reservation";
+        String query = "SELECT * FROM reservation";
         ResultSet resultSet;
         try {
             resultSet = dbHelper.stmt.executeQuery(query);
@@ -84,7 +84,7 @@ public class ReservationDao {
      */
     public boolean update(Reservation reservation) {
         dbHelper.getConnection();
-        String query = "UPDATE Reservation SET "
+        String query = "UPDATE reservation SET "
                 + " Room_id = " + reservation.getRoom_id() + ","
                 + " Client_id = " + reservation.getClient_id() + ","
                 + " User_id = " + reservation.getUser_id() + ","
@@ -109,7 +109,7 @@ public class ReservationDao {
      */
     public boolean delete(Reservation reservation) {
         dbHelper.getConnection();
-        String query = "DELETE FROM Reservation "
+        String query = "DELETE FROM reservation "
                 + " WHERE id = " + reservation.getId();
         try {
             dbHelper.stmt.execute(query);

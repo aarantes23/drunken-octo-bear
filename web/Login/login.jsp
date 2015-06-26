@@ -22,10 +22,10 @@
         <h1>Trip Hotel - Restricted Area </h1>
         <div class="registration">
             <div class="form-info">
-                <form action="../Login/index_after_login.jsp" method="post">
+                <form action="../Login/testUser.jsp" method="post">
                     <h2>Login</h2>
-                    <input type="text" class="text" placeholder="Username" required="true"/>
-                    <input type="password" class="Password" placeholder="Password" required="true"/>
+                    <input name="login" type="text" class="text" placeholder="Username" required="true"/>
+                    <input name="password" type="password" class="Password" placeholder="Password" required="true"/>
                     <div class="btn"><input type="submit" value="Login"></div>
                     <div class="roundedOne">
                         <input type="checkbox" value="None" id="roundedOne" name="check" />

@@ -19,7 +19,7 @@
                 <div class="friend-main">
                     <div class="friend-top">
                         <h3>Delete Item</h3>
-                        <form action="DeleteItem" method="post">
+                        <form action="../dao/Delete/delete_item.jsp" method="post">
                             <p>Item code : <input name="code" type="number" id="code" required="true"</p>                        
                             <p><input type="submit" value="Delete"></p>
                         </form>
